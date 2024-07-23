@@ -37,3 +37,4 @@ sed -i "s|^\($SERVER_URL_VARIABLE_NAME *= *\).*|\1'$SERVER_URL'|" "./ghostBand_r
 
 echo "변수 project_path 수정 완료: $PATH_VARIABLE_NAME = $NEW_PATH"
 echo "변수 server_ip 수정 완료: $SERVER_URL_VARIABLE_NAME = $SERVER_URL"
+echo "./ghostBand_flask/app.py의 최하단에 존재하는 app.run()의 매개변수 port도 수정해주세요"
