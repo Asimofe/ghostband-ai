@@ -1,5 +1,16 @@
 # 단컴한 인생: Ghost Band - AI 작곡
 
+## 목차
+- [단컴한 인생: Ghost Band - AI 작곡](#단컴한-인생-ghost-band---ai-작곡)
+  - [목차](#목차)
+  - [개요](#개요)
+  - [주의사항](#주의사항)
+  - [실행 가이드](#실행-가이드)
+  - [출처 및 라이센스](#출처-및-라이센스)
+  - [연락처](#연락처)
+
+
+## 개요
 본 프로젝트는 [SW중심대학 디지털 경진대회_SW와 생성AI의 만남 : SW 부문]에 참여하는 팀인 "단컴한 인생"의 프로젝트 Ghost Band의 주요 기능인 AI 작곡 기능을 MuseCoco(Generation Symbolic Music from Text) 모델과 Flask를 사용하여 구현한 프로젝트입니다.  
   
 AI 작곡 기능의 파이프라인은 다음과 같습니다.
@@ -18,7 +29,7 @@ AI 작곡 기능의 파이프라인은 다음과 같습니다.
 본 프로젝트는 Ubuntu 20.04.6 LTS version에서 구현되고 테스트하였으므로 이외의 운영체제에서 원할히 실행되지 않을 수 있음을 알려드립니다.
 
 이 레포지토리에는 GhostBand의 AI 작곡 기능만 포함되어 있으며 나머지 기능들과 프론트엔드는 포함되어 있지 않습니다.  
-- 만약 요청 테스트를 하고자 한다면 ghostBand_req_test 폴더를 확인하세요.  
+- 만약 요청 테스트를 하고자 한다면 `ghostBand_ai_composition/ghostBand_req_test` 폴더를 확인하세요.  
 
 2-Stage에서 사용되는 모델은 아래의 파일에서 링크를 확인하고 직접 설치해야 합니다.
 - `ghostBand_ai_composition/2-attribute2music_model/checkpoints/linear_mask-1billion/README.md`
@@ -87,7 +98,8 @@ MuseScore3 3.2.3 버전을 사용하였으며 원본 레포지토리의 출처�
 
 - [MuseScore Github] https://github.com/musescore/MuseScore
 
----
-작성자: 이철민  
-E-mail: jongha1257@gmail.com
+## 연락처
+기타 문의사항이 있다면 아래의 E-mail을 통해 연락해주세요.  
+- 작성자: 이철민  
+- E-mail: jongha1257@gmail.com
 
