@@ -1,166 +1,36 @@
-# MuseCoco: Generating Symbolic Music from Text
-![MuseCoco](https://ai-muzic.github.io/images/musecoco/framework.png)
+# 단컴한 인생: Ghost Band - AI 작곡
 
+본 프로젝트는 [SW중심대학 디지털 경진대회_SW와 생성AI의 만남 : SW 부문]에 참여하는 팀인 "단컴한 인생"의 프로젝트 Ghost Band의 주요 기능인 AI 작곡 기능을 Flask로 구현한 프로젝트입니다.  
+  
+AI 작곡 기능의 파이프라인은 다음과 같습니다.
 
-- [What's New!](#whats-new)
-- [Environment](#environment)
-- [Attributes](#attributes)
-- [Training](#training)
-  - [I. Text-to-Attribute Understanding](#i-text-to-attribute-understanding)
-    - [1 Construct attribute-text pairs](#1-construct-attribute-text-pairs)
-    - [2. Train the model](#2-train-the-model)
-  - [II. Attribute-to-Music Generation](#ii-attribute-to-music-generation)
-    - [1. Data processing](#1-data-processing)
-    - [2. Training](#2-training)
-- [Inference](#inference)
-  - [I. Text-to-Attribute Understanding](#i-text-to-attribute-understanding-1)
-  - [II. Attribute-to-Music Generation](#ii-attribute-to-music-generation-1)
-  - [III. Evaluate Generated Music](#iii-evaluate-generated-music)
-  - [Usage Tips](#usage-tips)
-- [Citation](#citation)
+- 1-Stage: Text-to-Attribute Predict
+  - Flutter로 구현된 모바일 앱을 통해 사용자로부터 음악 작곡을 위한 Attribute를 HTTP로 전달받습니다.
+  - 해당 Attribute를 기반으로 생성되는 음악의 다양성을 위해 사용 가능한 아티스트 중 한명을 포함시켜 Text 형태로 변환합니다.  
+  - 변환된 Text를 BERT 모델을 통하여 사용된 Attribute를 예측하고 Attribute2muic generation 단계에 사용되는 입력 파일 형태로 변환합니다.  
 
-# What's New!
-[2023.06.30] **Checkpoints are released!** 📣🎶
+- 2-Stage: Attribute-to-Music Generation
+  - 입력 파일과 Attribute2music 모델을 통해 음악을 REMI 파일의 생성하고, 이를 통해 MIDI 파일로 변환합니다.
+  - MIDI 파일을 오픈소스로 공개된 악보제작 프로그램인 MuseScore3를 사용하여 악보로 변환합니다.
+  - 이후 모바일 앱에서 다운로드 요청이 오면 생성된 MIDI 파일과 악보를 HTTP를 통해 전달합니다.
 
-[2023.06.01] **We create the repository and release the [paper](https://arxiv.org/abs/2306.00110).** 🎉🎵
-# Environment
-```bash
-# Tested on Linux.
-conda create -n MuseCoco python=3.8
-conda activate MuseCoco
-conda install pytorch=1.11.0 -c pytorch
-pip install -r requirements.txt  # g++ should be installed to let this line work.
-```
+## 주의사항
+이 레포지토리에는 GhostBand의 AI 작곡 기능만 포함되어 있습니다.  
+Flutter로 구현된 모바일앱과 나머지 기능은 다음 레포지토리를 참고하시기 바랍니다.
 
-# Attributes
-The mapping between keywords used in the code and musical attributes:
-```json
-{
-    "I1s2": "Instrument",
-    "R1": "Rhythm Danceability",
-    "R3": "Rhythm Intensity",
-    "S2s1": "Artist",
-    "S4": "Genre",
-    "B1s1": "Bar",
-    "TS1s1": "Time Signature",
-    "K1": "Key",
-    "T1s1": "Tempo",
-    "P4": "Pitch Range",
-    "EM1": "Emotion",
-    "TM1": "Time"
-}
-```
+## 출처 및 라이센스
+이 프로젝트에서 사용하는 생성 모델인 MuseCoco는 Microsoft Research Asia의 일부 연구원들과 외부 협력자들에 의해 시작된 AI 음악 연구 프로젝트인 Muzic의 하위 프로젝트입니다.   
+MuseCoco 모델을 사용하기 위해 Github에서 Muzic 레포지토리를 복제하였으며, 이 프로젝트를 수정하여 Ghost Band 프로젝트의 AI 작곡 기능을 구현하였습니다.  
+Muzic는 MIT License를 따르는 오픈소스 프로젝트이며 원본 레포지토리의 출처는 다음과 같습니다.
 
-# Training
+- [Muzic Github] https://github.com/microsoft/muzic
+- [MuseCoco Github] https://github.com/microsoft/muzic/tree/main/musecoco
 
-## I. Text-to-Attribute Understanding
+악보 변환 기능에 사용되는 MuseScore는 Werner Schweer가 제작한 악보 제작 프로그램으로 GPL version 3.0 License를 따르는 오픈소스 프로젝트입니다.  
+MuseScore3 3.2.3 버전을 사용하였으며 원본 레포지토리의 출처는 다음과 같습니다.
 
-### 1. Construct attribute-text pairs
-Switch to the `1-text2attribute_dataprepare` folder
-1. Attribute: We provide attributes of the standard test set in [text.bin](https://github.com/microsoft/muzic/tree/main/musecoco/1-text2attribute_dataprepare/test).
-2. Construct Text:
-    ```bash
-    cd 1-text2attribute_dataprepare
-    bash run.sh
-    ```
-1. Obtain attribute-text pairs (the input dataset for the text-to-attribute understanding model) including `att_key.json` and `test.json`.
-We have provided the off-the-shelf standard test set in the [folder](https://github.com/microsoft/muzic/tree/main/musecoco/1-text2attribute_model/data) too.
-### 2. Train the model
-Switch to the `1-text2attribute_model` folder
-```bash
-cd 1-text2attribute_model
-bash train.sh
-```
-The checkpoint of the fine-tuned model and `num_labels.json` are obtained.
+- [MuseScore Github] https://github.com/musescore/MuseScore
 
-## II. Attribute-to-Music Generation
-
-### 1. Data processing
-Switch to the `2-attribute2music_dataprepare` folder. Then, run the following command to obtain the packed data. Note that `path/to/the/folder/containing/midi/files` is the path where you store the MIDI files, and `path/to/save/the/dataset` is an arbitrary folder you designate to store the extracted data.
-
-```bash
-python extract_data.py path/to/the/folder/containing/midi/files path/to/save/the/dataset
-```
-
-**Note:** The tool can only automatically extract the objective attributes' values from MIDI files. If you want to insert values for the subjective attributes' values, please input it manually at L40-L42 in `extract_data.py`.
-
-The above commend would tokenize the music and extract the attributes from the MIDI files, and then save the information in 4 files named `Token.bin`,  `Token_index.json`, `RID.bin`, `RID_index.json` in your designated folder. Please move those files into `2-attribute2music_model/data`, and switch to `2-attribute2music_model/data_process`, then run the following command to process the data into `train, validation, test`.
-
-```shell
-# The following script splits the midi corpus into "train.txt", "valid.txt" and "test.txt", using "5120" as the maximum length of the token sequence.
-python split_data.py
-
-#The following script binarizes the data in fairseq format.
-python util.py
-```
-
-### 2. Training
-
-Switch to the `2-attribute2music_model` folder
-
-Run the following command to train a model with approximately 200M parameters.
-
-```shell
-bash train-xl.sh
-```
-
-
-
-# Inference
-## I. Text-to-Attribute Understanding
-Switch to `1-text2attribute_model` folder
-1. Prepare the text as the format in [predict.json](https://github.com/microsoft/muzic/blob/main/musecoco/1-text2attribute_model/data/predict.json).
-2. Set `test_file` as the path of `predict.json` in `predict.sh`.
-3. Then,
-    ```bash
-    bash predict.sh
-    ```
-    The `predict_attributes.json` and `softmax_probs.json` are obtained.
-4. Preprocess the input of the attribute-to-music generation stage for inference
-    After inference, set the path of `predict.json`, `predict_attributes.json`, `softmax_probs.json` and `att_key.json` in `stage2_pre.py` and then,
-    ```bash
-    python stage2_pre.py
-    ```
-    The `infer_test.bin` is obtained as the inference input of the attribute-to-music generation stage.
-## II. Attribute-to-Music Generation
-Switch to `2-attribute2music_model` folder
-1. Download the [checkpoint](https://drive.google.com/file/d/1HJvrOi_cli48RDm7ni5VAafVEi8qcTGN/view?usp=sharing) and Prepare it in `checkpoint/linear_mask-1billion`
-
-2. Prepare the input for inference in the folder `data/infer_input/infer_test.bin` from the output of text-to-attribute understanding stage (`infer_test.bin`). 
-
-3. Run the following command to generate music based on the first 200 samples in `infer_test.bin`.
-
-```shell
-# The following script takes "data/infer_input/infer_test.bin" as input.
-bash interactive_1billion.sh 0 200
-# bash interactive.sh start_idx end_idx input_name
-```
-
-The generated results are located in the folder `generation/`
-
-## III. Evaluate Generated Music
-If you'd like to evaluate the generated music, extracted objective attributes can be regarded as gold labels.
-Switch to the `evaluation` folder and run the following command:
-```bash
-# python eval_acc_v3.py --root=2-attribute2music_model/generation/0505/linear_mask-1billion-checkpoint_2_280000/infer_test/topk15-t1.0-ngram0
-python eval_acc_v3.py --root=PATH_OF_GENERATED_MUSIC
-```
-The average sample-wise accuracy for objective attributes (ASA) is printed. The accuracy of each objective attribute is in `acc_results.json`. The accurateness of every attribute in each MIDI file is shown in `midiinfo.json` (`value_dict` refers to the extracted attributes and '0' and '1' in `acc` refer to error and correctness respectively)
-
-## Usage Tips
-To maximize your utilization of MuseCoco, here are some valuable tips to enhance your overall experience:
-1. You have two options for creating text descriptions: writing them yourself or using the synthesis method with ChatGPT, as mentioned in the paper. We recommend the synthesis method with attribute values. It's easier and aligns better with the data distribution.
-2. Please ensure that you utilize the specific attributes mentioned in the paper and implemented in the code when constructing your text descriptions. Using attributes that are not explicitly mentioned may lead to undesired control accuracy. Stick to the specified attributes to achieve the desired level of control.
-3. Please use the attribute values we provided, other values or categories for each attribute will bring about undesired control accuracy.
-4. Please use the evaluation model above to calculate the control accuracy, and select the samples with the highest accuracy for improved performance. While it is difficult to guarantee 100% control accuracy, it is advisable to automatically filter out some samples to enhance the overall results.
-
-# Citation
-```bibtex
-@article{musecoco2023,
-  title={MuseCoco: Generating Symbolic Music from Text},
-  author={Peiling Lu, Xin Xu, Chenfei Kang, Botao Yu, Chengyi Xing, Xu Tan, Jiang Bian},
-  journal={arXiv preprint arXiv:2306.00110},
-  year={2023}
-}
-```
-# GhostBand---AI-Composition
+---
+작성자: 이철민  
+E-mail: jongha1257@gmail.com
