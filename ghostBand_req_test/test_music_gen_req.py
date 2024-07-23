@@ -8,7 +8,10 @@ current_time = now.strftime("%Y%m%d_%H%M")
 
 # 서버에 POST 요청 보내기
 # 플라스크가 실행되는 서버의 URL/run_model, 예시: http://123.123.123.123:1234/run_model
-url = ''
+server_ip = '127.0.0.1:5000'
+
+server_url = f'{server_ip}/run_model'
+
 data = {
     "selected_instruments": ["guitar", "bass", "drum"],
     "genre": "jazz",

@@ -21,9 +21,9 @@ current_pid = None
 stop_flag = False
 
 # 해당 프로젝트의 절대 경로 입력
-project_path = ""
+project_path = '/home/UserName/ghostBand_ai_composition'
 # 자신의 IP 주소:플라스크 포트 주소 입력
-server_ip = ""
+server_ip = '127.0.0.1:5000'
 
 
 available_artist = {

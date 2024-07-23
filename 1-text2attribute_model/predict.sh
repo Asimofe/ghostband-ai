@@ -1,5 +1,8 @@
 # [ghostBand_ai_composition 프로젝트의 절대경로]/1-text2attribute_model
-#cd /home/clark/workspace/muzic/ghostBand_ai_composition/1-text2attribute_model
+
+project_path="/home/UserName/ghostBand_ai_composition"
+
+cd ${project_path}/1-text2attribute_model
 
 python main.py \
     --do_predict \

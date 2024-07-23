@@ -10,7 +10,10 @@ if len(sys.argv) < 2:
 
 date = sys.argv[1]
 
-#midi_root = f"[ghostBand_ai_composition 프로젝트의 절대경로]/2-attribute2music_model/generation/{date}/linear_mask-1billion-attribute2music/infer_test/topk15-t1.0-ngram0"
+# ghostBand_ai_composition 프로젝트 디렉토리의 절대경로를 입력하세요
+project_path = '/home/UserName/ghostBand_ai_composition'
+
+midi_root = f"{project_path}/2-attribute2music_model/generation/{date}/linear_mask-1billion-attribute2music/infer_test/topk15-t1.0-ngram0"
 midi_decoder = MidiDecoder("REMIGEN2")
 
 print(midi_decoder)

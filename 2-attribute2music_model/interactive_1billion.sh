@@ -11,6 +11,10 @@ need_num=2
 temp=1.0
 ngram=0
 
+# ghostBand_ai_composition 프로젝트의 경로를 입력하세요
+# 예시 project_path="/home/UserName/ghostBand_ai_composition"
+project_path="/home/UserName/ghostBand_ai_composition"
+
 
 datasets_name="truncated_2560"
 checkpoint_name="attribute2music"
@@ -43,7 +47,7 @@ export CUDA_VISIBLE_DEVICES=$device
 echo "generating from ${checkpoint_path}"
 echo "save to ${save_root}"
 
-cd /home/clark/workspace/muzic/ghostBand_ai_composition/2-attribute2music_model/linear_mask
+cd "${project_path}/2-attribute2music_model/linear_mask"
 
 mkdir -p ${save_root}
 mkdir -p ${log_root}
