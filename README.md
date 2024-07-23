@@ -15,8 +15,59 @@ AI 작곡 기능의 파이프라인은 다음과 같습니다.
   - 이후 모바일 앱에서 다운로드 요청이 오면 생성된 MIDI 파일과 악보를 HTTP를 통해 전달합니다.
 
 ## 주의사항
-이 레포지토리에는 GhostBand의 AI 작곡 기능만 포함되어 있으며 나머지 기능들과 프론트엔드는 포함되어 있지 않습니다.
-만약 요청 테스트를 하고자 한다면 ghostBand_req_test 폴더를 확인하세요.
+본 프로젝트는 Ubuntu 20.04.6 LTS version에서 구현되고 테스트하였으므로 이외의 운영체제에서 원할히 실행되지 않을 수 있음을 알려드립니다.
+
+이 레포지토리에는 GhostBand의 AI 작곡 기능만 포함되어 있으며 나머지 기능들과 프론트엔드는 포함되어 있지 않습니다.  
+- 만약 요청 테스트를 하고자 한다면 ghostBand_req_test 폴더를 확인하세요.  
+
+2-Stage에서 사용되는 모델은 아래의 파일에서 링크를 확인하고 직접 설치해야 합니다.
+- `ghostBand_ai_composition/2-attribute2music_model/checkpoints/linear_mask-1billion/README.md`
+
+
+## 실행 가이드
+만약 본 프로젝트를 직접 실행하고자 한다면 아래의 가이드라인을 참고하여 진행해주세요.  
+
+1. 환경 설정 ([출처](https://github.com/microsoft/muzic/tree/main/musecoco))
+    ```
+    conda create -n MuseCoco python=3.8
+    conda activate MuseCoco
+    conda install pytorch=1.11.0 -c pytorch
+    pip install -r requirements.txt  # g++ should be installed to let this line work.
+    ```
+
+2. Flask 설치
+    ```
+    # Flask 설치
+    pip install flask
+    # 설치 확인
+    python -m flask --version
+    ```
+3. 실행 파일 내 경로 수정   
+  Flask를 통해 MuseCoco 모델을 실행하기 위해선 몇가지 파일의 변수를 수정해야합니다.  
+  먼저 `ghostBand_ai_composition/path_setting.sh` 파일에서 변수 `NEW_PATH`와 `SERVER_URL`을 수정하고 실행해주세요.
+     ```
+     # 변수 NEW_PATH, SERVER_URL 수정 후 실행
+     bash path_setting.sh
+     ```
+4. app.py 실행  
+    `ghostBand_ai_composition/ghostBand_flask` 경로에서 Flask 앱을 실행합니다.
+    ```
+    #Flask 앱 실행
+    python app.py
+    ```
+5. 음악 생성 Request 전송  
+    실행한 Flask 앱으로 음악 생성 Request를 보내기 위해 `ghostBand_ai_composition/ghostBand_req_test` 경로에서 다음과 같이 파일을 실행합니다. 
+    ```
+    python test_music_gen_req.py
+    ```
+    생성이 끝나면 MIDI 파일과 악보를 다운받으며 필요 시 스크립트를 수정하여 사용해주세요.  
+    
+    만약 생성 도중 중지 요청을 보내려면 동일한 경로에서 다음과 같이 스크립트를 실행해주세요.
+    ```
+    python test_process_stop_req.py
+    ```
+
+
 
 
 ## 출처 및 라이센스
