@@ -22,6 +22,8 @@ AI 작곡 기능의 파이프라인은 다음과 같습니다.
 
 2-Stage에서 사용되는 모델은 아래의 파일에서 링크를 확인하고 직접 설치해야 합니다.
 - `ghostBand_ai_composition/2-attribute2music_model/checkpoints/linear_mask-1billion/README.md`
+- 만약 설치가 안된다면 아래의 링크에서 checkpoint를 확인하여 주세요.
+- [원본 Github 링크](https://github.com/microsoft/muzic/tree/main/musecoco#ii-attribute-to-music-generation-1)
 
 
 ## 실행 가이드
@@ -42,13 +44,15 @@ AI 작곡 기능의 파이프라인은 다음과 같습니다.
     # 설치 확인
     python -m flask --version
     ```
-3. 실행 파일 내 경로 수정   
+3. 실행 파일 수정   
   Flask를 통해 MuseCoco 모델을 실행하기 위해선 몇가지 파일의 변수를 수정해야합니다.  
   먼저 `ghostBand_ai_composition/path_setting.sh` 파일에서 변수 `NEW_PATH`와 `SERVER_URL`을 수정하고 실행해주세요.
      ```
      # 변수 NEW_PATH, SERVER_URL 수정 후 실행
      bash path_setting.sh
      ```
+    이때 입력한 `SERVER_URL`의 포트번호를 `ghostBand_ai_composition/ghostBand_flask/app.py`의 진입점 코드블럭 내 app.run()에 동일한 포트번호를 입력해야 합니다.
+
 4. app.py 실행  
     `ghostBand_ai_composition/ghostBand_flask` 경로에서 Flask 앱을 실행합니다.
     ```
