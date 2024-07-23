@@ -1,0 +1,177 @@
+{
+    "os": "Linux-5.15.0-86-generic-x86_64-with-glibc2.17",
+    "python": "3.8.19",
+    "heartbeatAt": "2024-07-04T08:29:36.580240",
+    "startedAt": "2024-07-04T08:29:35.826426",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--model_name_or_path=bert-large-uncased",
+        "--do_train",
+        "--do_eval",
+        "--train_file=data/test.json",
+        "--validation_file=data/test.json",
+        "--attributes=data/att_key.json",
+        "--max_seq_length=256",
+        "--per_device_train_batch_size=16",
+        "--gradient_accumulation_steps=4",
+        "--output_dir=./tmp/",
+        "--load_best_model_at_end=True",
+        "--save_strategy=steps",
+        "--evaluation_strategy=steps",
+        "--num_train_epochs=50",
+        "--overwrite_output_dir",
+        "--learning_rate=1e-05"
+    ],
+    "state": "running",
+    "program": "main.py",
+    "codePathLocal": "main.py",
+    "codePath": "musecoco/1-text2attribute_model/main.py",
+    "git": {
+        "remote": "https://github.com/microsoft/muzic.git",
+        "commit": "7c811532979fb16874919e9a3bbb520a215990b5"
+    },
+    "email": null,
+    "root": "/home/clark/workspace/muzic",
+    "host": "oem-System-Product-Name",
+    "username": "clark",
+    "executable": "/home/clark/anaconda3/envs/musecoco/bin/python",
+    "cpu_count": 10,
+    "cpu_count_logical": 20,
+    "cpu_freq": {
+        "current": 3488.2317500000004,
+        "min": 1200.0,
+        "max": 4560.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4600.0
+        },
+        {
+            "current": 3007.885,
+            "min": 1200.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1706.611,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4600.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3879.135,
+            "min": 1200.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4600.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4600.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3700.0,
+            "min": 1200.0,
+            "max": 4700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1832.2062683105469,
+            "used": 1133.4433937072754
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 4,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3090",
+            "memory_total": 25769803776
+        },
+        {
+            "name": "NVIDIA GeForce RTX 3090",
+            "memory_total": 25769803776
+        },
+        {
+            "name": "NVIDIA GeForce RTX 3090",
+            "memory_total": 25769803776
+        },
+        {
+            "name": "NVIDIA GeForce RTX 3090",
+            "memory_total": 25769803776
+        }
+    ],
+    "memory": {
+        "total": 188.38773345947266
+    }
+}
