@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# 아래의 파일들에 존재하는 특정 변수를 수정합니다.
+# "./1-text2attribute_model/predict.sh"
+# "./1-text2attribute_model/stage2_pre.py"
+# "./2-attribute2music_model/interactive_1billion.sh"
+# "./2-attribute2music_model/remi2midi.py"
+# "./ghostBand_flask/app.py"
+# "./ghostBand_req_test/test_music_gen_req.py"
+# "./ghostBand_req_test/test_process_stop_req.py"
+
 # 수정할 변수
 PATH_VARIABLE_NAME="project_path"
 # ghostBand_ai_composition 디렉토리의 절대 경로를 입력하세요
@@ -37,4 +46,4 @@ sed -i "s|^\($SERVER_URL_VARIABLE_NAME *= *\).*|\1'$SERVER_URL'|" "./ghostBand_r
 
 echo "변수 project_path 수정 완료: $PATH_VARIABLE_NAME = $NEW_PATH"
 echo "변수 server_ip 수정 완료: $SERVER_URL_VARIABLE_NAME = $SERVER_URL"
-echo "./ghostBand_flask/app.py의 최하단에 존재하는 app.run()의 매개변수 port도 수정해주세요"
+echo "./ghostBand_flask/app.py의 최하단에 존재하는 진입점 코드블럭의 app.run() 매개변수 port도 수정해주세요"
