@@ -1,9 +1,16 @@
 # 단컴한 인생: Ghost Band - AI 작곡
 
+본 프로젝트의 GUI는 아래의 링크에서 확인하실 수 있습니다.  
+- [GhostBand](https://github.com/lsj1137/GhostBand.git)
+
 ## 업데이트
-[2024. 07. 25.] 악기 소리 뮤트, 악보 추출 기능에 관한 코드가 `spleeter` 디렉토리에 추가 되었습니다.
+[2024. 07. 25.]  
+  
+악기 소리 뮤트, 악보 추출 기능에 관한 코드가 `spleeter` 디렉토리에 추가 되었습니다.
 - 해당 기능에 대한 설명은 추후에 업데이트 될 예정입니다.
 - 해당 기능을 실행하기 위한 모델 파일은 현재 레포지토리에 저장되어있지 않으며 기능 실행 시 자동으로 설치됩니다.
+
+
 
 ## 목차
 - [단컴한 인생: Ghost Band - AI 작곡](#단컴한-인생-ghost-band---ai-작곡)
@@ -44,8 +51,8 @@ AI 작곡 기능의 파이프라인은 다음과 같습니다.
 
 2-Stage에서 사용되는 모델은 아래의 파일에서 링크를 확인하고 직접 설치해야 합니다.
 - `ghostBand_ai_composition/2-attribute2music_model/checkpoints/linear_mask-1billion/README.md`
-- 만약 설치가 안된다면 아래의 링크에서 checkpoint를 확인하여 주세요.
-- [원본 Github 링크](https://github.com/microsoft/muzic/tree/main/musecoco#ii-attribute-to-music-generation-1)
+- 만약 설치가 안된다면 아래의 MuseCoco 원본 Github 레포지토리에서 checkpoint를 확인하여 주세요.
+- [MuseCoco Github](https://github.com/microsoft/muzic/tree/main/musecoco#ii-attribute-to-music-generation-1)
 
 
 
