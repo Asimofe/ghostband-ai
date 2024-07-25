@@ -6,7 +6,7 @@
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/WaRoong2"><img src="https://avatars.githubusercontent.com/u/57708892?v=44" width="100px;" alt=""/><br /><sub><b>SeJun Lim</b></sub></a><br />
+    <td align="center"><a href="https://github.com/lsj1137"><img src="https://avatars.githubusercontent.com/u/57708892?v=44" width="100px;" alt=""/><br /><sub><b>SeJun Lim</b></sub></a><br />
     <td align="center"><a href="https://github.com/Asimofe"><img src="https://avatars.githubusercontent.com/u/44723052?v=4" width="100px;" alt=""/><br /><sub><b>CheolMin Lee</b></sub></a><br />
     <td align="center"><a href="https://github.com/Mkpong"><img src="https://avatars.githubusercontent.com/u/107354104?v=4" width="100px;" alt=""/><br /><sub><b>JaeYoung Lee</b></sub></a><br />
 </table>  
