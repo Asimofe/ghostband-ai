@@ -1,5 +1,18 @@
 # 단컴한 인생: Ghost Band - AI 작곡
 
+안녕하세요, 저희는 단국대학교 컴퓨터공학과에 재학중인 학생들로 구성된 \<단컴한 인생\> 팀입니다.
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/WaRoong2"><img src="https://avatars.githubusercontent.com/u/57708892?v=44" width="100px;" alt=""/><br /><sub><b>SeJun Lim</b></sub></a><br />
+    <td align="center"><a href="https://github.com/Asimofe"><img src="https://avatars.githubusercontent.com/u/44723052?v=4" width="100px;" alt=""/><br /><sub><b>CheolMin Lee</b></sub></a><br />
+    <td align="center"><a href="https://github.com/Mkpong"><img src="https://avatars.githubusercontent.com/u/107354104?v=4" width="100px;" alt=""/><br /><sub><b>JaeYoung Lee</b></sub></a><br />
+</table>  
+
+그럼 "혼자서도 밴드 활동을 즐길 수 있는 방법이 없을까?"에서 출발한 프로젝트, \<Ghost Band\>를 소개합니다.
+
 본 프로젝트의 GUI는 아래의 링크에서 확인하실 수 있습니다.  
 - [GhostBand](https://github.com/lsj1137/GhostBand.git)
 
