@@ -4,6 +4,7 @@
 - [단컴한 인생: Ghost Band - AI 작곡](#단컴한-인생-ghost-band---ai-작곡)
   - [목차](#목차)
   - [개요](#개요)
+  - [업데이트](#업데이트)
   - [주의사항](#주의사항)
   - [실행 가이드](#실행-가이드)
   - [출처 및 라이센스](#출처-및-라이센스)
@@ -25,16 +26,23 @@ AI 작곡 기능의 파이프라인은 다음과 같습니다.
   - MIDI 파일을 오픈소스로 공개된 악보제작 프로그램인 MuseScore3를 사용하여 악보로 변환합니다.
   - 이후 모바일 앱에서 다운로드 요청이 오면 생성된 MIDI 파일과 악보를 HTTP를 통해 전달합니다.
 
+
+## 업데이트
+[2024. 07. 25.] 악기 소리 뮤트, 악보 추출 기능에 관한 코드가 `spleeter` 디렉토리에 추가 되었습니다.
+- 해당 기능에 대한 설명은 추후에 업데이트 될 예정입니다.
+- 해당 기능을 실행하기 위한 모델 파일은 현재 레포지토리에 저장되어있지 않으며 기능 실행 시 자동으로 설치됩니다.
+
 ## 주의사항
 본 프로젝트는 Ubuntu 20.04.6 LTS version에서 구현되고 테스트하였으므로 이외의 운영체제에서 원할히 실행되지 않을 수 있음을 알려드립니다.
 
-이 레포지토리에는 GhostBand의 AI 작곡 기능만 포함되어 있으며 나머지 기능들과 프론트엔드는 포함되어 있지 않습니다.  
+이 레포지토리에는 GhostBand의 프론트엔드는 포함되어 있지 않습니다.  
 - 만약 요청 테스트를 하고자 한다면 `ghostBand_ai_composition/ghostBand_req_test` 폴더를 확인하세요.  
 
 2-Stage에서 사용되는 모델은 아래의 파일에서 링크를 확인하고 직접 설치해야 합니다.
 - `ghostBand_ai_composition/2-attribute2music_model/checkpoints/linear_mask-1billion/README.md`
 - 만약 설치가 안된다면 아래의 링크에서 checkpoint를 확인하여 주세요.
 - [원본 Github 링크](https://github.com/microsoft/muzic/tree/main/musecoco#ii-attribute-to-music-generation-1)
+
 
 
 ## 실행 가이드
