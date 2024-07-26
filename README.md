@@ -1,9 +1,29 @@
 # 단컴한 인생: Ghost Band - AI 작곡
 
+안녕하세요, 저희는 단국대학교 컴퓨터공학과에 재학중인 학생들로 구성된 \<단컴한 인생\> 팀입니다.
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/lsj1137"><img src="https://avatars.githubusercontent.com/u/57708892?v=44" width="100px;" alt=""/><br /><sub><b>SeJun Lim</b></sub></a><br />
+    <td align="center"><a href="https://github.com/Asimofe"><img src="https://avatars.githubusercontent.com/u/44723052?v=4" width="100px;" alt=""/><br /><sub><b>CheolMin Lee</b></sub></a><br />
+    <td align="center"><a href="https://github.com/Mkpong"><img src="https://avatars.githubusercontent.com/u/107354104?v=4" width="100px;" alt=""/><br /><sub><b>JaeYoung Lee</b></sub></a><br />
+</table>  
+
+그럼 "혼자서도 밴드 활동을 즐길 수 있는 방법이 없을까?"에서 출발한 프로젝트, \<Ghost Band\>를 소개합니다.
+
+본 프로젝트의 GUI는 아래의 링크에서 확인하실 수 있습니다.  
+- [GhostBand](https://github.com/lsj1137/GhostBand.git)
+
 ## 업데이트
-[2024. 07. 25.] 악기 소리 뮤트, 악보 추출 기능에 관한 코드가 `spleeter` 디렉토리에 추가 되었습니다.
+[2024. 07. 25.]  
+  
+악기 소리 뮤트, 악보 추출 기능에 관한 코드가 `spleeter` 디렉토리에 추가 되었습니다.
 - 해당 기능에 대한 설명은 추후에 업데이트 될 예정입니다.
 - 해당 기능을 실행하기 위한 모델 파일은 현재 레포지토리에 저장되어있지 않으며 기능 실행 시 자동으로 설치됩니다.
+
+
 
 ## 목차
 - [단컴한 인생: Ghost Band - AI 작곡](#단컴한-인생-ghost-band---ai-작곡)
@@ -14,11 +34,13 @@
   - [실행 가이드](#실행-가이드)
   - [출처 및 라이센스](#출처-및-라이센스)
   - [연락처](#연락처)
-- [Ghost Band - 악보 추출, 악기 소리 뮤트](#ghost-band---악보-추출-악기-소리-뮤트)
+- [단컴한 인생: Ghost Band - 악보 추출, 악기 소리 뮤트](#단컴한-인생-ghost-band---악보-추출-악기-소리-뮤트)
   - [개요](#개요-1)
   - [주의사항](#주의사항-1)
   - [실행 가이드](#실행-가이드-1)
   - [출처 및 라이센스](#출처-및-라이센스-1)
+  - [연락처](#연락처-1)
+>>>>>>> 38ae73f30d8076b1bc966148b0306c66bdf9862a
   - [연락처](#연락처-1)
 
 
@@ -41,15 +63,15 @@ AI 작곡 기능의 파이프라인은 다음과 같습니다.
 
 
 ## 주의사항
-본 프로젝트는 Ubuntu 20.04.6 LTS version에서 구현되고 테스트하였으므로 이외의 운영체제에서 원할히 실행되지 않을 수 있음을 알려드립니다.
+본 프로젝트는 Ubuntu 20.04.6 LTS version에서 구현되고 테스트하였으므로 이외의 운영체제에서 원활활히 실행되지 않을 수 있음을 알려드립니다.
 
 이 레포지토리에는 GhostBand의 프론트엔드는 포함되어 있지 않습니다.  
 - 만약 요청 테스트를 하고자 한다면 `ghostBand_ai_composition/ghostBand_req_test` 폴더를 확인하세요.  
 
 2-Stage에서 사용되는 모델은 아래의 파일에서 링크를 확인하고 직접 설치해야 합니다.
 - `ghostBand_ai_composition/2-attribute2music_model/checkpoints/linear_mask-1billion/README.md`
-- 만약 설치가 안된다면 아래의 링크에서 checkpoint를 확인하여 주세요.
-- [원본 Github 링크](https://github.com/microsoft/muzic/tree/main/musecoco#ii-attribute-to-music-generation-1)
+- 만약 설치가 안된다면 아래의 MuseCoco 원본 Github 레포지토리에서 checkpoint를 확인하여 주세요.
+- [MuseCoco Github](https://github.com/microsoft/muzic/tree/main/musecoco#ii-attribute-to-music-generation-1)
 
 
 
@@ -119,7 +141,7 @@ MuseScore3 3.2.3 버전을 사용하였으며 원본 레포지토리의 출처�
 - 작성자: 이철민  
 - E-mail: jongha1257@gmail.com
 
-# Ghost Band - 악보 추출, 악기 소리 뮤트
+# 단컴한 인생: Ghost Band - 악보 추출, 악기 소리 뮤트
 
 추후 작성 예정
 ## 개요
